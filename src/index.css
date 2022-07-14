@@ -3,11 +3,36 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+    font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.selected-row {
+  background: repeating-linear-gradient(
+          45deg,
+          #fff,
+          #e2dce3 10px,
+          #d8d2d9 10px,
+          #aaa 20px
+  );
+}
+
+.table tr {
+    height: 35px;
+}
+.table td {
+    vertical-align: middle;
+}
+
+.action-cell.great {
+    background-color: darkseagreen;
+}
+
+.action-cell.medium {
+    background-color: yellow;
+}
+
+.action-cell.worse {
+    background-color: indianred;
 }
