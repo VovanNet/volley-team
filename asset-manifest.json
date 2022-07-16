@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/vg-team/static/css/main.d50c5cbb.css",
-    "main.js": "/vg-team/static/js/main.751a769f.js",
-    "index.html": "/vg-team/index.html",
-    "main.d50c5cbb.css.map": "/vg-team/static/css/main.d50c5cbb.css.map",
-    "main.751a769f.js.map": "/vg-team/static/js/main.751a769f.js.map"
+    "main.css": "/volley-team/static/css/main.ebad5319.css",
+    "main.js": "/volley-team/static/js/main.883dc6d5.js",
+    "index.html": "/volley-team/index.html",
+    "main.ebad5319.css.map": "/volley-team/static/css/main.ebad5319.css.map",
+    "main.883dc6d5.js.map": "/volley-team/static/js/main.883dc6d5.js.map"
   },
   "entrypoints": [
-    "static/css/main.d50c5cbb.css",
-    "static/js/main.751a769f.js"
+    "static/css/main.ebad5319.css",
+    "static/js/main.883dc6d5.js"
   ]
 }
