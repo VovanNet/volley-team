@@ -9,13 +9,7 @@ body {
 }
 
 .selected-row {
-  background: repeating-linear-gradient(
-          45deg,
-          #fff,
-          #e2dce3 10px,
-          #d8d2d9 10px,
-          #aaa 20px
-  );
+  background: lightgray;
 }
 
 .table tr {
@@ -25,14 +19,43 @@ body {
     vertical-align: middle;
 }
 
+.table .name-cell {
+  font-weight: bold;
+}
+
 .action-cell.great {
-    background-color: darkseagreen;
+    background-color: #b7e1cd;
 }
 
 .action-cell.medium {
-    background-color: yellow;
+    background-color: #fff2cc;
 }
 
 .action-cell.worse {
-    background-color: indianred;
+    background-color: #e09999;
 }
+
+.total-cell {
+  font-weight: bold;
+}
+
+.total-cell.great {
+  background-color: #b7e1cd;
+}
+
+.total-cell.medium {
+  background-color: #fff2cc;
+}
+
+.total-cell.worse {
+  background-color: #e08888;
+}
+/*
+div.minus-button {
+  background: lightgrey;
+}
+
+div.plus-button {
+  background: lightgrey;
+}
+*/

@@ -5,6 +5,7 @@ import ActionPanel from "./components/action-panel";
 import {Player} from "./types/player";
 import ControlPanel from "./components/control-panel";
 import {Alert} from "react-bootstrap";
+import {useLocalStorage} from "./helpers/use-storage";
 
 function App() {
     function clearSelection() {
@@ -71,17 +72,28 @@ function App() {
         clearSelection();
     }
 
+    function handleClearPlayers() {
+        setInGamePlayers([]);
+        setOutGamePlayers([]);
+        clearSelection();
+    }
+
     function closeToast() {
         setHasError(false);
     }
 
-    const [inGamePlayers, setInGamePlayers] = useState<Player[]>([]);
-    const [outGamePlayers, setOutGamePlayers] = useState<Player[]>([]);
+    //const [inGamePlayers, setInGamePlayers] = useState<Player[]>([]);
+    //const [outGamePlayers, setOutGamePlayers] = useState<Player[]>([]);
+    
+    const [inGamePlayers, setInGamePlayers] = useLocalStorage<Player[]>("inGame", []);
+    const [outGamePlayers, setOutGamePlayers] = useLocalStorage<Player[]>("outGame", []);
 
     const [selInPlayers, setSelInPlayers] = useState<Player[]>([]);
     const [selOutPlayers, setSelOutPlayers] = useState<Player[]>([]);
 
     const [hasError, setHasError] = useState(false);
+
+    //loadState();
 
     useEffect(() => {
         if (hasError) {
@@ -101,7 +113,7 @@ function App() {
             <GameTable players={outGamePlayers} selectedPlayers={selOutPlayers}
                        addPlayerToSelect={handleAddPlayerToOut}
                        removePlayerFromSelect={handleRemovePlayerFromOut}/>
-            <ControlPanel onAddPlayer={handleAddPlayer}/>
+            <ControlPanel onAddPlayer={handleAddPlayer} onClearPlayers={handleClearPlayers}/>
         </div>
     );
 }

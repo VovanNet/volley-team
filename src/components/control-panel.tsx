@@ -1,6 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faPlus} from "@fortawesome/free-solid-svg-icons";
+import {ChangeEvent, useState} from 'react';
 import {Player} from "../types/player";
 import {Alert, Button, Modal} from "react-bootstrap";
 
@@ -12,9 +10,10 @@ function getEmptyPlayer(): Player {
 
 interface Props {
     onAddPlayer: (player: Player) => void;
+    onClearPlayers: () => void;
 }
 
-function ControlPanel({onAddPlayer}: Props) {
+function ControlPanel({onAddPlayer, onClearPlayers}: Props) {
     function handleAddPlayer() {
         if (player.name !== "") {
             onAddPlayer(player);
@@ -39,13 +38,24 @@ function ControlPanel({onAddPlayer}: Props) {
         setModalOpen(false);
     }
 
+    function handleClearPlayers() {
+        if(window.confirm('Are you sure?')) {
+            onClearPlayers();
+        }
+    }
+
     const [isModalOpen, setModalOpen] = useState(false);
     const [player, setPlayer] = useState<Player>(getEmptyPlayer());
     const [hasError, setError] = useState(false);
 
     return (
         <div>
-            <FontAwesomeIcon className="ms-2 p-2" icon={faPlus} color="#6960EC" onClick={handleOpenModal}/>
+            <Button variant="success" size="sm" onClick={handleOpenModal}>
+                Add
+            </Button>
+            <Button variant="danger" size="sm" className="float-end" onClick={handleClearPlayers}>
+                Clear
+            </Button>
             <Modal show={isModalOpen} onHide={handleCloseModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Adding Player</Modal.Title>

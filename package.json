@@ -1,8 +1,8 @@
 {
-  "name": "vg-team",
+  "name": "volley-team",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alkorr37.github.io/vg-team/",
+  "homepage": "https://vovannet.github.io/volley-team/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Player} from "../types/player";
 import ActionCell from "./action-cell";
+import classNames from "classnames";
 
 interface Props {
     player: Player;
@@ -29,9 +30,16 @@ function PlayerRow({canEditStats, player, isSelected, onSelect, onDeselect, onUp
     }
 
     const total = player.serveCount + player.passCount + player.attackCount + player.blockCount + player.receiveCount;
+
+    const rowClassName = classNames("total-cell py-0", {
+        "great": total > 10,
+        "medium": total > 0 && total <= 10,
+        "worse": total < 0,
+    });
+
     return (
         <tr className={isSelected ? "selected-row" : ""}>
-            <td className="py-0" onClick={handleClick}>{player.name}</td>
+            <td className="py-0 name-cell" onClick={handleClick}>{player.name}</td>
             <ActionCell withButtons={canEditStats} onIncrease={() => handleIncreaseStat("serveCount")}
                         onDecrease={() => handleDecreaseStat("serveCount")} curData={player.serveCount}/>
             <ActionCell withButtons={canEditStats} onIncrease={() => handleIncreaseStat("passCount")}
@@ -42,7 +50,7 @@ function PlayerRow({canEditStats, player, isSelected, onSelect, onDeselect, onUp
                         onDecrease={() => handleDecreaseStat("blockCount")} curData={player.blockCount}/>
             <ActionCell withButtons={canEditStats} onIncrease={() => handleIncreaseStat("receiveCount")}
                         onDecrease={() => handleDecreaseStat("receiveCount")} curData={player.receiveCount}/>
-            <td className="py-0"><div className="d-flex align-items-center justify-content-center">{total}</div></td>
+            <td className={rowClassName}><div className="d-flex align-items-center justify-content-center">{total}</div></td>
         </tr>
     );
 }
