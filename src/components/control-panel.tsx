@@ -11,9 +11,10 @@ function getEmptyPlayer(): Player {
 interface Props {
     onAddPlayer: (player: Player) => void;
     onClearPlayers: () => void;
+    onDefaultPlayers: () => void;
 }
 
-function ControlPanel({onAddPlayer, onClearPlayers}: Props) {
+function ControlPanel({onAddPlayer, onClearPlayers, onDefaultPlayers}: Props) {
     function handleAddPlayer() {
         if (player.name !== "") {
             onAddPlayer(player);
@@ -44,6 +45,12 @@ function ControlPanel({onAddPlayer, onClearPlayers}: Props) {
         }
     }
 
+    function handleDefaultPlayers() {
+        if(window.confirm('Are you sure?')) {
+            onDefaultPlayers();
+        }
+    }
+
     const [isModalOpen, setModalOpen] = useState(false);
     const [player, setPlayer] = useState<Player>(getEmptyPlayer());
     const [hasError, setError] = useState(false);
@@ -55,6 +62,9 @@ function ControlPanel({onAddPlayer, onClearPlayers}: Props) {
             </Button>
             <Button variant="danger" size="sm" className="float-end" onClick={handleClearPlayers}>
                 Clear
+            </Button>
+            <Button variant="secondary" size="sm" className="float-end" onClick={handleDefaultPlayers}>
+                Default
             </Button>
             <Modal show={isModalOpen} onHide={handleCloseModal}>
                 <Modal.Header closeButton>

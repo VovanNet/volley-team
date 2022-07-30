@@ -17,11 +17,11 @@ function GameTable({onUpdateStats, players, selectedPlayers, addPlayerToSelect, 
             <thead>
                 <tr>
                     <th className="col-3">Имя</th>
-                    <th className="col-1 text-center">Подача</th>
-                    <th className="col-1 text-center">Прием</th>
-                    <th className="col-1 text-center">Пас</th>
+                    <th className="col-1 text-center">Игра (подача, пас)</th>
+                    {/* <th className="col-1 text-center">Прием</th>
+                    <th className="col-1 text-center">Пас</th> */}
                     <th className="col-1 text-center">Атака</th>
-                    <th className="col-1 text-center">Блок</th>
+                    <th className="col-1 text-center">Защита</th>
                     <th className="col-1 text-center">Итого</th>
                 </tr>
             </thead>

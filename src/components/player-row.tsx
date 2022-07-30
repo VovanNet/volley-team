@@ -42,14 +42,14 @@ function PlayerRow({canEditStats, player, isSelected, onSelect, onDeselect, onUp
             <td className="py-0 name-cell" onClick={handleClick}>{player.name}</td>
             <ActionCell withButtons={canEditStats} onIncrease={() => handleIncreaseStat("serveCount")}
                         onDecrease={() => handleDecreaseStat("serveCount")} curData={player.serveCount}/>
-            <ActionCell withButtons={canEditStats} onIncrease={() => handleIncreaseStat("passCount")}
-                        onDecrease={() => handleDecreaseStat("passCount")} curData={player.passCount}/>
+            {/* <ActionCell withButtons={canEditStats} onIncrease={() => handleIncreaseStat("passCount")}
+                        onDecrease={() => handleDecreaseStat("passCount")} curData={player.passCount}/> */}
             <ActionCell withButtons={canEditStats} onIncrease={() => handleIncreaseStat("attackCount")}
                         onDecrease={() => handleDecreaseStat("attackCount")} curData={player.attackCount}/>
             <ActionCell withButtons={canEditStats} onIncrease={() => handleIncreaseStat("blockCount")}
                         onDecrease={() => handleDecreaseStat("blockCount")} curData={player.blockCount}/>
-            <ActionCell withButtons={canEditStats} onIncrease={() => handleIncreaseStat("receiveCount")}
-                        onDecrease={() => handleDecreaseStat("receiveCount")} curData={player.receiveCount}/>
+            {/* <ActionCell withButtons={canEditStats} onIncrease={() => handleIncreaseStat("receiveCount")}
+                        onDecrease={() => handleDecreaseStat("receiveCount")} curData={player.receiveCount}/> */}
             <td className={rowClassName}><div className="d-flex align-items-center justify-content-center">{total}</div></td>
         </tr>
     );
